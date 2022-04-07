@@ -14,7 +14,6 @@ const webp = require('gulp-webp');
 const svgstore = require('gulp-svgstore');
 const del = require('del');
 
-
 const styles = () => {
   return gulp.src('src/sass/style.scss')
     .pipe(plumber())
@@ -26,78 +25,69 @@ const styles = () => {
     ]))
     .pipe(rename('style.min.css'))
     .pipe(sourcemap.write('.'))
-    .pipe(gulp.dest('src/css'))
+    .pipe(gulp.dest('shelter/css'))
     .pipe(sync.stream());
 };
-
 exports.styles = styles;
-
 const htmlMin = () => {
   return gulp.src('src/*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest('build'));
+    .pipe(htmlmin({
+      collapseWhitespace: true
+    }))
+    .pipe(gulp.dest('shelter'));
 };
-
 exports.htmlMin = htmlMin;
 
 const scriptMin = () => {
   return gulp.src('src/js/*.js')
     .pipe(terser())
     .pipe(rename('script.min.js'))
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest('shelter/js'))
 };
-
 exports.scriptMin = scriptMin;
-
 const optimizeImg = () => {
   return gulp.src('src/img/*.{jpg,png,svg}')
     .pipe(squoosh())
-    .pipe(gulp.dest('build/img'))
+    .pipe(gulp.dest('shelter/img'))
 };
-
 exports.optimizeImg = optimizeImg;
-
 const createWebp = () => {
   return gulp.src('src/img/*.{jpg,png}')
-    .pipe(webp({quality: 90}))
-    .pipe(gulp.dest('build/img'))
+    .pipe(webp({
+      quality: 90
+    }))
+    .pipe(gulp.dest('shelter/img'))
 };
-
 exports.createWebp = createWebp;
-
 const createSprite = () => {
   return gulp.src('src/img/icons/*.svg')
-    .pipe(svgstore({inlineSvg: true}))
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
     .pipe(rename('sprite.svg'))
-    .pipe(gulp.dest('src/img/icons'))
+    .pipe(gulp.dest('shelter/img/icons'))
 };
-
 exports.createSprite = createSprite;
-
 const copy = (done) => {
   gulp.src([
-    'src/fonts/*.{woff,woff2}',
-    'src/*.ico',
-  ],
-  {
-    base: 'src'
-  })
-  .pipe(gulp.dest('build'))
+      'src/fonts/*.{woff,woff2}',
+      'src/*.ico',
+      'src/js/*.js',
+    ], {
+      base: 'src'
+    })
+    .pipe(gulp.dest('shelter'))
   done();
 }
-
 exports.copy = copy;
-
 const clean = () => {
-  return del('build');
+  return del('shelter');
 };
-
 exports.clean = clean;
-
 const server = (done) => {
   sync.init({
     server: {
-      baseDir: 'src',
+      baseDir: 'shelter',
     },
     cors: true,
     notify: false,
@@ -105,28 +95,23 @@ const server = (done) => {
   });
   done();
 };
-
 exports.server = server;
-
 const watcher = () => {
   gulp.watch('src/sass/**/*.scss', gulp.series('styles'));
   gulp.watch('src/**/*.html').on('change', sync.reload);
 };
-
 exports.watcher = watcher;
-
 exports.default = gulp.series(styles, server, watcher);
-
 const build = gulp.series(
   clean,
   copy,
   optimizeImg,
   createSprite,
-  createWebp,
+  // createWebp,
   gulp.parallel(
     styles,
     htmlMin,
-    scriptMin,
+    // scriptMin,
   )
 )
 exports.build = build;
