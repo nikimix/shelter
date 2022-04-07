@@ -105,5 +105,10 @@ dist
 
 
 npm-debug.*
-src/css
-src/img/icons/sprite.svg
+src/
+.editorconfig
+gulpfile.js
+.gitattributes
+package-lock.json
+package.json
+README.md
