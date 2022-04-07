@@ -1,3 +1,9 @@
 @import 'abstracts/variable';
 @import 'abstracts/placeholder';
 @import 'abstracts/mixin';
+
+@import 'blocks/common/base';
+@import 'blocks/common/wrapper';
+@import 'blocks/common/header';
+@import 'blocks/common/logo';
+@import 'blocks/common/nav';
