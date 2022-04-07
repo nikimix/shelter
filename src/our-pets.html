@@ -1,12 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="page" lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Shelter</title>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
 
+<body class="body body--our-pets">
+  <header class="header header--our-pets">
+    <div class="wrapper">
+      <div class="header__content header__content--our-pets">
+        <a class="logo" href="index.html">
+          <h1 class="logo__main-title logo__main-title--our-pets">Cozy House</h1>
+          <h2 class="logo__sub-title logo__sub-title--our-pets">Shelter for pets in Boston</h2>
+        </a>
+        <button class="header__toggle header__toggle--our-pets" type="button">
+          <span class="visually-hidden">menu</span>
+        </button>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--our-pets" href="index.html">About the shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--our-pets nav__link--current nav__link--our-pets-current" href="#">Our
+                pets</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--our-pets" href="index.html#help">Help the shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--our-pets" href="#contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="pets pets--our-pets">
+      <div class="wrapper">
+        <div class="pets__content pets__content--our-pets">
+          <h2 class="pets__title pets__title--our-friends">Our friends who<br>
+            are looking for a house</h2>
+          <ul class="pets__list">
+            <li class="pets__item pets__item--1">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_katrine.jpg" alt="cat Katrine">
+                <h3 class="pets-card__title">Katrine</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--2">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_jennifer.jpg" alt="pupy Jennifer">
+                <h3 class="pets-card__title">Jennifer</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--3">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_woody.jpg" alt="dog Woody">
+                <h3 class="pets-card__title">Woody</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--4">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_sophia.jpg" alt="pupy Sophia">
+                <h3 class="pets-card__title">Sophia</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--5">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_timmy.jpg" alt="cat Timmy">
+                <h3 class="pets-card__title">Timmy</h3>
+                <a class="pets-card__button">Learn more</a>
+              </article>
+            </li>
+            <li class="pets__item pets__item--6">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_charly.jpg" alt="dog Charly">
+                <h3 class="pets-card__title">Charly</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--7">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_scarlet.jpg" alt="pupy Scarlett">
+                <h3 class="pets-card__title">Scarlett</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+            <li class="pets__item pets__item--8">
+              <article class="pets-card">
+                <img class="pets-card__img" src="img/pet_freddie.jpg" alt="cat Freddie">
+                <h3 class="pets-card__title">Freddie</h3>
+                <button class="pets-card__button">Learn more</button>
+              </article>
+            </li>
+          </ul>
+          <div class="pagination">
+            <button class="control-button control-button--inactive" type="button" disabled><span
+                class="visually-hidden">to first page</span>&#706;&#706;</button>
+            <button class="control-button control-button--inactive" type="button" disabled><span
+                class="visually-hidden">back</span>&#706;</button>
+            <button class="control-button control-button--current" type="button">1</button>
+            <button class="control-button control-button--active" type="button"><span
+                class="visually-hidden">next</span>&#707;</button>
+            <button class="control-button control-button--active" type="button"><span class="visually-hidden">to last
+                page</span>&#707;&#707;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="wrapper">
+    <div class="main-footer__content">
+      <div class="main-footer__text-content">
+        <div class="contacts" id="contacts">
+          <h2 class="contacts__title">For questions<br> and suggestions</h2>
+          <a class="contacts__email" href="mailto:email@shelter.com" aria-label="shelter email">
+            <svg class="contacts__email-icon" width="40" height="26" role="img">
+              <use xlink:href="img/icons/sprite.svg#icon_mail"></use>
+            </svg>
+            email@shelter.com
+          </a>
+          <a class="contacts__phone" href="tel:+136745677554" aria-label="shelter phone number">
+            <svg class="contacts__phone-icon" width="40" height="32" role="img">
+              <use xlink:href="img/icons/sprite.svg#icon_phone"></use>
+            </svg>
+            +13 674 567 75 54
+          </a>
+        </div>
+        <div class="address">
+          <h2 class="address__title">We are waiting<br> for your visit</h2>
+          <address class="address__info">
+            <a class="address__link" href="https://goo.gl/maps/wjTEpoXxmr219rSbA" target="_blank"
+              aria-label="shelter address">
+              <svg class="address__pin-icon" width="22" height="32" role="img">
+                <use xlink:href="img/icons/sprite.svg#icon_pin"></use>
+              </svg>
+              1 Central Street,
+              Boston<br> (entrance from the store)
+            </a>
+          </address>
+          <address class="address__info">
+            <a class="address__link" href="https://goo.gl/maps/wjTEpoXxmr219rSbA" target="_blank"
+              aria-label="shelter address">
+              <svg class="address__pin-icon" width="22" height="32" role="img">
+                <use xlink:href="img/icons/sprite.svg#icon_pin"></use>
+              </svg>
+              18 South Park,
+              London
+            </a>
+          </address>
+        </div>
+      </div>
+      <img class="main-footer__img" src="img/desktop_footer_puppy.png" width="260" height="269" alt="picture of puppy">
+    </div>
+  </div>
+  </footer>
+
+  <div class="sidebar">
+    <div class="wrapper">
+      <div class="sidebar__content">
+        <a class="logo sidebar__logo" href="index.html">
+          <h1 class="logo__main-title">Cozy House</h1>
+          <h2 class="logo__sub-title">Shelter for pets in Boston</h2>
+        </a>
+        <nav class="nav sidebar__nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page " href="index.html">About
+                the
+                shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page nav__link--current nav__link--main-page-current" href="#">Our pets</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page nav__link--help" href="#">Help the shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page nav__link--contacts" href="#">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay"></div>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
