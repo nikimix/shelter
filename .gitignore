@@ -106,3 +106,4 @@ dist
 
 npm-debug.*
 src/css
+src/img/icons/sprite.svg
