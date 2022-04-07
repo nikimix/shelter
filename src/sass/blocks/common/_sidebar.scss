@@ -1,0 +1,35 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  width: 320px;
+
+  background-color: $signal_black;
+  transform: translateX(100%);
+  transition: 0.7s all ease-in-out;
+  z-index: 50;
+
+  &--open {
+    transform: translateX(0);
+  }
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.sidebar__content {
+  display: flex;
+  min-height: 823px;
+}
+
+.sidebar__logo {
+  position: absolute;
+  margin-top: 30px;
+}
+
+.sidebar__nav {
+  display: block;
+  margin: auto;
+}
