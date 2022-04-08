@@ -1,0 +1,29 @@
+.control-button {
+  @extend %control_button;
+
+  margin: 0;
+
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  font-size: 20px;
+  line-height: 0;
+  color: $signal_black;
+
+  &--inactive {
+    color: $light_telegray;
+    border-color: $light_telegray;
+    cursor: auto;
+  }
+
+  &--current {
+    background-color: $desert_sand;
+    cursor: auto;
+  }
+
+  &--active:hover {
+    border-color: $apricot_criola;
+    background-color: $apricot_criola;
+  }
+}

@@ -105,7 +105,7 @@ dist
 
 
 npm-debug.*
-src/
+# src/
 .editorconfig
 gulpfile.js
 .gitattributes

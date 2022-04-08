@@ -1,0 +1,43 @@
+%title {
+  margin: 0;
+
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+%reset_default_styles_list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+%link_button {
+  box-sizing: border-box;
+  padding: 15px 45px;
+
+  font-family: Georgia;
+  font-size: 17px;
+  color: $signal_black;
+  letter-spacing: 0.06em;
+  line-height: 130%;
+  text-decoration: none;
+  border-radius: 100px;
+}
+
+%control_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+
+  border: 2px solid $desert_sand;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+}

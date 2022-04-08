@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+
+  src: local("Georgia"),
+    url(/src/fonts/Georgia.woff2) format("woff2"),
+    url(/src/fonts/Georgia.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+
+  src: local("Georgia"),
+    url(/src/fonts/Georgia-Bold.woff2) format("woff2"),
+    url(/src/fonts/Georgia-Bold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+
+  src: local("Arial"),
+    url(/src/fonts/ArialMT.woff2) format("woff2"),
+    url(/src/fonts/ArialMT.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+
+  src: local("Arial"),
+    url(/src/fonts/Arial-BoldMT.woff2) format("woff2"),
+    url(/src/fonts/Arial-BoldMT.woff) format("woff");
+}
+.page {
+  overflow-x: hidden;
+}
+
+.body {
+  position: relative;
+  min-height: 100%;
+  min-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 160%;
+
+  &--our-pets {
+    padding-top: 120px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

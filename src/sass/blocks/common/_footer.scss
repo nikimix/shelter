@@ -1,0 +1,140 @@
+.main-footer {
+  padding-top: 30px;
+  background: url(../img/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+
+  @include desktop {
+    padding-top: 40px;
+  }
+}
+
+.main-footer__content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  align-items: center;
+
+  @include tablet {
+    row-gap: 65px;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    row-gap: 0;
+    column-gap: 160px;
+    align-items: flex-start;
+  }
+}
+
+.main-footer__text-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  @include tablet {
+    flex-direction: row;
+    width: 100%;
+    min-height: 234px;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    padding-top: 16px;
+  }
+}
+
+.contacts {
+  display: grid;
+  justify-items: center;
+  height: min-content;
+  row-gap: 42px;
+
+  @include tablet {
+    margin-left: 34px;
+    justify-items: start;
+    min-height: 234px;
+    align-content: space-between;
+    row-gap: 0;
+  }
+
+  @include desktop {
+    margin: 0;
+  }
+}
+
+.address {
+  display: grid;
+  justify-items: start;
+  height: min-content;
+  row-gap: 39px;
+
+  @include tablet {
+    min-width: 302px;
+    margin-right: 34px;
+    min-height: 234px;
+    align-content: space-between;
+    row-gap: 0;
+  }
+
+  @include desktop {
+    margin: 0;
+  }
+}
+
+
+.contacts__title,
+.address__title {
+  @extend %title;
+
+  max-width: 278px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 130%;
+  color: white;
+  br {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  @include tablet {
+    max-width: none;
+    text-align: start;
+    font-size: 35px
+  }
+}
+
+.address__title {
+  padding: 0 15px;
+
+  @include tablet {
+    padding: 0;
+  }
+}
+
+.contacts__email,
+.contacts__phone,
+.address__link {
+  @extend %title;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 20px;
+  line-height: 115%;
+  color: $desert_sand;
+  text-decoration: none;
+}
+
+.contacts__email-icon,
+.contacts__phone-icon,
+.address__pin-icon {
+  margin-right: 20px;
+}
+
+.main-footer__img {
+  @include tablet {
+    width: 300px;
+  }
+}
