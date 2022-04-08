@@ -4,15 +4,12 @@ const menuToggleOurPets = document.querySelector('.header__toggle--our-pets');
 const nav = document.querySelector('.nav');
 const sidebar = document.querySelector('.sidebar');
 const overlay = document.querySelector('.overlay');
-const currentLinkMainPage = sidebar.querySelector('.nav__link--main-page-current');
+const currentLinkMainPage = sidebar.querySelector('.nav__link--current');
 const navLinkHelp = sidebar.querySelector('.nav__link--help');
 const navLinkContacts = sidebar.querySelector('.nav__link--contacts');
 
 function closeMenu() {
   menuToggle.classList.toggle('header__toggle--opened');
-  if(menuToggleOurPets) {
-    menuToggleOurPets.classList.toggle('header__toggle--our-pets');
-  }
   logo.classList.toggle('logo--hidden');
   sidebar.classList.toggle('sidebar--open');
   overlay.classList.toggle('overlay--on');
