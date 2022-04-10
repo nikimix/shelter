@@ -299,6 +299,43 @@
     </div>
   </footer>
 
+  <template id="popup">
+    <div class="popup">
+      <div class="popup__content">
+        <h2 class="popup__title"></h2>
+        <h3 class="popup__subtitle"></h3>
+        <p class="popup__description"></p>
+        <dl class="popup__feature-list feature-list">
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--age">Age: </dt>
+            <dd class="feature-list__description feature-list__description--age"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--inoculations">Inoculations: </dt>
+            <dd class="feature-list__description feature-list__description--inoculations"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--diseases">Diseases: </dt>
+            <dd class="feature-list__description feature-list__description--diseases"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--parasites">Parasites: </dt>
+            <dd class="feature-list__description feature-list__description--parasites"></dd>
+          </div>
+        </dl>
+      </div>
+      <img class="popup__img" src="350" width="350" height="500" alt="pet Jennifer">
+      <button class="popup__button-close popup__button-close--active button" type="button">
+        <svg width="12" height="12">
+          <use xlink:href="img/icons/sprite.svg#icon_cross"></use>
+        </svg>
+      </button>
+    </div>
+  </template>
+
   <div class="overlay"></div>
   <script src="js/main/script.js" type="module"></script>
 </body>
