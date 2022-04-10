@@ -30,13 +30,13 @@
   }
 
   function changeSlide() {
-    const sliderCards = slider.querySelectorAll('.pets-card');
-    const currentCardsNames = Array.from(slider.querySelectorAll('.pets-card__title')).map(item => item.textContent);
+    const sliderCards = slider.querySelectorAll('.pet-card');
+    const currentCardsNames = Array.from(slider.querySelectorAll('.pet-card__title')).map(item => item.textContent);
     const uniquePets = getUniquePets(currentCardsNames);
 
     for (let i = 0; i < sliderCards.length; i++) {
-      const cardImage = sliderCards[i].querySelector('.pets-card__img');
-      const cardTitle = sliderCards[i].querySelector('.pets-card__title');
+      const cardImage = sliderCards[i].querySelector('.pet-card__img');
+      const cardTitle = sliderCards[i].querySelector('.pet-card__title');
       cardImage.src = setNewAddressForImg(cardImage.src, uniquePets[i].img);
       cardTitle.textContent = uniquePets[i].name;
     }

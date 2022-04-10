@@ -77,59 +77,59 @@
             are looking for a house</h2>
           <ul class="pets__list">
             <li class="pets__item pets__item--1">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_katrine.jpg" alt="cat Katrine">
-                <h3 class="pets-card__title">Katrine</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_katrine.jpg" alt="cat Katrine">
+                <h3 class="pet-card__title">Katrine</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--2">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_jennifer.jpg" alt="pupy Jennifer">
-                <h3 class="pets-card__title">Jennifer</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_jennifer.jpg" alt="pupy Jennifer">
+                <h3 class="pet-card__title">Jennifer</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--3">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_woody.jpg" alt="dog Woody">
-                <h3 class="pets-card__title">Woody</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_woody.jpg" alt="dog Woody">
+                <h3 class="pet-card__title">Woody</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--4">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_sophia.jpg" alt="pupy Sophia">
-                <h3 class="pets-card__title">Sophia</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_sophia.jpg" alt="pupy Sophia">
+                <h3 class="pet-card__title">Sophia</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--5">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_timmy.jpg" alt="cat Timmy">
-                <h3 class="pets-card__title">Timmy</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_timmy.jpg" alt="cat Timmy">
+                <h3 class="pet-card__title">Timmy</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--6">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_charly.jpg" alt="dog Charly">
-                <h3 class="pets-card__title">Charly</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_charly.jpg" alt="dog Charly">
+                <h3 class="pet-card__title">Charly</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--7">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_scarlet.jpg" alt="pupy Scarlett">
-                <h3 class="pets-card__title">Scarlett</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_scarlett.jpg" alt="pupy Scarlett">
+                <h3 class="pet-card__title">Scarlett</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
             <li class="pets__item pets__item--8">
-              <article class="pets-card">
-                <img class="pets-card__img" src="img/pet_freddie.jpg" alt="cat Freddie">
-                <h3 class="pets-card__title">Freddie</h3>
-                <button class="pets-card__button button" type="button">Learn more</button>
+              <article class="pet-card">
+                <img class="pet-card__img" src="img/pet_freddie.jpg" alt="cat Freddie">
+                <h3 class="pet-card__title">Freddie</h3>
+                <button class="pet-card__button button" type="button">Learn more</button>
               </article>
             </li>
           </ul>
@@ -196,6 +196,43 @@
     </div>
   </div>
   </footer>
+
+  <template id="popup">
+    <div class="popup">
+      <div class="popup__content">
+        <h2 class="popup__title"></h2>
+        <h3 class="popup__subtitle"></h3>
+        <p class="popup__description"></p>
+        <dl class="popup__feature-list feature-list">
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--age">Age: </dt>
+            <dd class="feature-list__description feature-list__description--age"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--inoculations">Inoculations: </dt>
+            <dd class="feature-list__description feature-list__description--inoculations"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--diseases">Diseases: </dt>
+            <dd class="feature-list__description feature-list__description--diseases"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--parasites">Parasites: </dt>
+            <dd class="feature-list__description feature-list__description--parasites"></dd>
+          </div>
+        </dl>
+      </div>
+      <img class="popup__img" src="350" width="350" height="500" alt="pet Jennifer">
+      <button class="popup__button-close popup__button-close--active button" type="button">
+        <svg width="12" height="12">
+          <use xlink:href="img/icons/sprite.svg#icon_cross"></use>
+        </svg>
+      </button>
+    </div>
+  </template>
 
   <div class="overlay"></div>
   <script src="js/our-pets/script.js" type="module"></script>
