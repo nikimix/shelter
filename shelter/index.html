@@ -14,8 +14,8 @@
     <div class="wrapper">
       <div class="header__content">
         <a class="logo" href="#">
-          <h1 class="logo__main-title">Cozy House</h1>
-          <h2 class="logo__sub-title">Shelter for pets in Boston</h2>
+          <h1 class="logo__title">Cozy House</h1>
+          <h2 class="logo__subtitle">Shelter for pets in Boston</h2>
         </a>
         <button class="header__toggle" type="button"><span class="visually-hidden">menu</span></button>
         <nav class="nav">
@@ -42,8 +42,8 @@
       <div class="wrapper">
         <div class="sidebar__content">
           <a class="logo sidebar__logo" href="#">
-            <h1 class="logo__main-title">Cozy House</h1>
-            <h2 class="logo__sub-title">Shelter for pets in Boston</h2>
+            <p class="logo__title">Cozy House</p>
+            <p class="logo__subtitle">Shelter for pets in Boston</p>
           </a>
           <nav class="nav sidebar__nav">
             <ul class="nav__list">
@@ -118,40 +118,42 @@
         <div class="pets__content">
           <h2 class="pets__title">Our friends who<br>
             are looking for a house</h2>
-          <div class="pets-slider">
-            <ul class="pets-slider__list">
-              <li class="pets-slider__item pets-slider__item--1">
-                <article class="pet-card">
-                  <img class="pet-card__img" src="img/pet_katrine.jpg" width="270" height="270" alt="pet cat katrine">
-                  <h3 class="pet-card__title">Katrine</h3>
-                  <button class="pet-card__button button" type="button">Learn more</button>
-                </article>
-              </li>
-              <li class="pets-slider__item pets-slider__item--2">
-                <article class="pet-card">
-                  <img class="pet-card__img" src="img/pet_jennifer.jpg" width="270" height="270"
-                    alt="pet cat jennifer">
-                  <h3 class="pet-card__title">Jennifer</h3>
-                  <button class="pet-card__button button" type="button">Learn more</button>
-                </article>
-              </li>
-              <li class="pets-slider__item pets-slider__item--3">
-                <article class="pet-card">
-                  <img class="pet-card__img" src="img/pet_woody.jpg" width="270" height="270" alt="pet cat woody">
-                  <h3 class="pet-card__title">Woody</h3>
-                  <button class="pet-card__button button" type="button">Learn more</button>
-                </article>
-              </li>
-            </ul>
-            <div class="pets-slider__controls">
-              <button class="pets-slider__button pets-slider__button--back pets-slider__button--active button"
-                type="button" aria-label="scroll-slider">
+          <div class="slider">
+            <div class="slider__wrapper">
+              <ul class="slider__list">
+                <li class="slider__item slider__item--1">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_katrine.jpg" width="270" height="270" alt="pet cat katrine">
+                    <h3 class="card__title">Katrine</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+                <li class="slider__item slider__item--2">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_jennifer.jpg" width="270" height="270"
+                      alt="pet cat jennifer">
+                    <h3 class="card__title">Jennifer</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+                <li class="slider__item slider__item--3">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_woody.jpg" width="270" height="270" alt="pet cat woody">
+                    <h3 class="card__title">Woody</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="slider__controls">
+              <button class="slider__button slider__button--back slider__button--active button" type="button"
+                aria-label="scroll-slider">
                 <svg width="14" height="6">
                   <use xlink:href="img/icons/sprite.svg#icon_arrow"></use>
                 </svg>
               </button>
-              <button class="pets-slider__button pets-slider__button--next pets-slider__button--active button"
-                type="button" aria-label="scroll-slider">
+              <button class="slider__button slider__button--next slider__button--active button" type="button"
+                aria-label="scroll-slider">
                 <svg width="14" height="6">
                   <use xlink:href="img/icons/sprite.svg#icon_arrow"></use>
                 </svg>

@@ -1,1 +1,1 @@
-import { getAllPets } from "../all-pets.js";
+import { getPetsData } from "../all-pets.js";

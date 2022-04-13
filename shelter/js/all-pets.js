@@ -1,4 +1,4 @@
-function getAllPets() {
+function getPetsData() {
   return [{
       "name": "Jennifer",
       "img": "img/pet_jennifer.jpg",
@@ -90,4 +90,4 @@ function getAllPets() {
   ];
 }
 
-export {getAllPets};
+export {getPetsData};

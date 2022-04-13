@@ -1,13 +1,13 @@
-import {getAllPets} from './all-pets.js';
+import {getPetsData} from './all-pets.js';
 
 const body = document.body;
 const popup = document.querySelector('#popup').content.querySelector('.popup');
-const petCards = body.querySelectorAll('.pet-card');
-const petsData = getAllPets();
+const petCards = body.querySelectorAll('.card');
+const petsData = getPetsData();
 
 
 function getPetName(card) {
-  return card.querySelector('.pet-card__title').textContent;
+  return card.querySelector('.card__title').textContent;
 }
 
 function getPetData(petName) {
