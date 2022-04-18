@@ -6,8 +6,8 @@ import {
   debounce
 } from "../util.js";
 
-const PETS_DATA = getPetsData();
-const DELAY = 150;
+const petsData = getPetsData();
+const DELAY = 50;
 const DIRECTION_RIGHT = -1;
 const DIRECTION_LEFT = 1;
 const PLACING_BEFFORE = "before";
@@ -19,71 +19,81 @@ const sliderNextButton = document.querySelector(".slider__button--next");
 const sliderWrapper = document.querySelector('.slider__wrapper');
 const sliderList = sliderWrapper.firstElementChild;
 const sliderItem = sliderList.firstElementChild;
-const sliderListLenght = sliderList.children.length;
-const displayWidth = parseFloat(getComputedStyle(document.body).width, 10);
+const sliderItemWidth = sliderItem.offsetWidth;
+const cloneSliderList = sliderList.cloneNode(true);
 
 let sliderChildren = sliderList.children;
-let sliderDirection = '';
-let elementsAmountInSlide = 3;
+let sliderDirection = null;
 
-if (displayWidth < 1280 && displayWidth >= 768) {
-  elementsAmountInSlide = 2;
-  for (let i = 0; i < sliderListLenght - elementsAmountInSlide; i++) {
-    sliderList.lastElementChild.remove();
+function getAmountElementsInSlide() {
+  const displayWidth = parseFloat(getComputedStyle(document.body).width, 10);
+  if (displayWidth > 1280) {
+    return 3;
+  }
+  return displayWidth >= 768 ? 2 : 1;
+}
+
+function updateSliderList(quantity) {
+  sliderList.innerHTML = '';
+  for (let i = 0; i < quantity; i++) {
+    sliderList.appendChild(cloneSliderList.children[i].cloneNode(true));
   }
 }
 
-if (displayWidth < 768) {
-  elementsAmountInSlide = 1;
-  for (let i = 0; i < sliderListLenght - elementsAmountInSlide; i++) {
-    sliderList.lastElementChild.remove();
-  }
+function getSliderStep() {
+  const elementsAmountInSlide = getAmountElementsInSlide();
+  return sliderItemWidth * elementsAmountInSlide + parseInt(getComputedStyle(sliderList).columnGap, 10) * elementsAmountInSlide;
 }
 
-const sliderStep = sliderItem.offsetWidth * elementsAmountInSlide;
+window.addEventListener('resize', debounce(() => {
+  updateSliderList(getAmountElementsInSlide());
+}, DELAY));
+
+window.addEventListener('load', () => updateSliderList(getAmountElementsInSlide()));
 
 function getUniqueCardsData(filters) {
-  const filteredData = PETS_DATA.filter(item => !filters.includes(item.name));
+  const filteredData = petsData.filter(item => !filters.includes(item.name));
   const uniqueCardsData = [];
+
   for (let i = 0; i < filters.length; i++) {
     const randomNumber = getRandomInteger(0, filteredData.length);
     uniqueCardsData.push(filteredData[randomNumber]);
     filteredData.splice(randomNumber, 1);
   }
+
   return uniqueCardsData;
+}
+
+function createNewItem(petData) {
+  const cardClone = sliderItem.cloneNode(true);
+  cardClone.querySelector('.card__title').textContent = petData.name;
+  cardClone.querySelector('.card__img').src = petData.img;
+  return cardClone;
 }
 
 function createUniqueCards() {
   const newFragment = document.createDocumentFragment();
-  let uniqueCardsData = '';
-  let filters = '';
-  let cardClone = '';
+  let uniqueCardsData = null;
+  let filters = null;
 
-  if (elementsAmountInSlide < 2) {
+  if (getAmountElementsInSlide() < 2) {
     filters = sliderList.firstElementChild.querySelector('.card__title').textContent;
-    uniqueCardsData = PETS_DATA.filter(item => filters !== item.name)[getRandomInteger(0, PETS_DATA.length - 1)];
-    cardClone = sliderItem.cloneNode(true);
-    cardClone.querySelector('.card__title').textContent = uniqueCardsData.name;
-    cardClone.querySelector('.card__img').src = uniqueCardsData.img;
-    newFragment.append(cardClone);
+    uniqueCardsData = petsData.filter(item => filters !== item.name)[getRandomInteger(0, petsData.length - 1)];
+    newFragment.append(createNewItem(uniqueCardsData));
   }
 
-  if (elementsAmountInSlide >= 2) {
+  if (getAmountElementsInSlide() >= 2) {
     filters = Array.from(sliderChildren).map(item => item.querySelector('.card__title').textContent);
     uniqueCardsData = getUniqueCardsData(filters);
-
-    Array.from(sliderChildren).forEach((item, index) => {
-      cardClone = item.cloneNode(true);
-      cardClone.querySelector('.card__title').textContent = uniqueCardsData[index].name;
-      cardClone.querySelector('.card__img').src = uniqueCardsData[index].img;
-      newFragment.append(cardClone);
-    });
+    for (let item of uniqueCardsData) {
+      newFragment.append(createNewItem(item));
+    }
   }
 
   return newFragment;
 }
 
-function deleteElements(placing) {
+function deletePreviousSlide(placing) {
   if (placing === "before") {
     for (let i = 0; i < sliderChildren.length; i++) {
       sliderList.lastElementChild.remove();
@@ -102,38 +112,36 @@ function getTranslate(shiftX) {
 }
 
 function setTransform(direction) {
-  sliderList.style.transform = getTranslate(direction * sliderStep);
+  sliderDirection = direction;
+  sliderList.style.transform = getTranslate(sliderDirection * getSliderStep());
 }
 
 sliderNextButton.addEventListener("click", debounce(() => {
-  sliderDirection = DIRECTION_RIGHT;
   sliderList.append(createUniqueCards());
-  sliderWrapper.style.justifyContent = "flex-start";
-  sliderList.style.justifyContent = "flex-start";
-  setTransform(sliderDirection);
+  setTransform(DIRECTION_RIGHT);
 }, DELAY));
 
 sliderPrevButton.addEventListener("click", debounce(() => {
-  sliderDirection = DIRECTION_LEFT;
   sliderList.prepend(createUniqueCards());
-  sliderWrapper.style.justifyContent = "flex-end";
-  sliderList.style.justifyContent = "flex-end";
-  setTransform(sliderDirection);
+  setTransform(DIRECTION_RIGHT);
 }, DELAY));
 
 sliderList.addEventListener('transitionstart', (evt) => {
   if (evt.target === sliderList) {
-    sliderWrapper.classList.add('slider__wrapper--slider-in-move');
-
+    sliderPrevButton.setAttribute('disabled', '');
+    sliderNextButton.setAttribute('disabled', '');
   }
 })
 
 sliderList.addEventListener("transitionend", (evt) => {
   if (evt.target === sliderList) {
-    deleteElements(sliderDirection === DIRECTION_LEFT ? PLACING_BEFFORE : PLACING_AFTER);
-    sliderWrapper.classList.remove('slider__wrapper--slider-in-move');
+    deletePreviousSlide(sliderDirection === DIRECTION_LEFT ? PLACING_BEFFORE : PLACING_AFTER);
+    sliderPrevButton.removeAttribute('disabled');
+    sliderNextButton.removeAttribute('disabled');
     sliderList.style.transition = "none";
+
     setTransform(0);
+
     setTimeout(() => {
       sliderList.style.transition = DEFAULT_TRANSITION;
     });

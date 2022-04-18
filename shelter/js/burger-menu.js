@@ -21,3 +21,26 @@ currentLinkMainPage.addEventListener('click',   closeMenu);
 
 navLinkHelp.addEventListener('click', evt => evt.preventDefault());
 navLinkContacts.addEventListener('click', evt => evt.preventDefault());
+
+
+// function onClickAnchor(evt) {
+//   const element = evt.target.closest('.js-anchor');
+//   if (!element) {
+//     return;
+//   }
+//   evt.preventDefault();
+//   const blockId = element.getAttribute('href');
+//   if (blockId && blockId !== '#') {
+//     const block = document.querySelector(blockId);
+
+//     if (block) {
+//       block.scrollIntoView({
+//         behavior: 'smooth',
+//         block: 'start',
+//       });
+//     }
+//   }
+// }
+
+// document.body.addEventListener('click', evt => onClickAnchor(evt));
+
