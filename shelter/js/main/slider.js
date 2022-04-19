@@ -119,11 +119,13 @@ function setTransform(direction) {
 sliderNextButton.addEventListener("click", debounce(() => {
   sliderList.append(createUniqueCards());
   setTransform(DIRECTION_RIGHT);
+  sliderList.style.justifyContent = 'flex-start';
 }, DELAY));
 
 sliderPrevButton.addEventListener("click", debounce(() => {
   sliderList.prepend(createUniqueCards());
-  setTransform(DIRECTION_RIGHT);
+  setTransform(DIRECTION_LEFT);
+  sliderList.style.justifyContent = 'flex-end';
 }, DELAY));
 
 sliderList.addEventListener('transitionstart', (evt) => {
