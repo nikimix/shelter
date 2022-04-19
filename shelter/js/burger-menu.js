@@ -1,3 +1,5 @@
+import { blockScroll, unlockScroll } from "./util.js";
+
 const logo = document.querySelector('.logo');
 const menuToggle = document.querySelector('.header__toggle');
 const nav = document.querySelector('.nav');
@@ -21,12 +23,13 @@ function changeElementsClass(action) {
   }
 }
 
-
 function onClickElement(elem, className) {
   if (elem.classList.contains(className)) {
     changeElementsClass('remove');
+    unlockScroll();
   } else {
     changeElementsClass('add');
+    blockScroll();
   }
 }
 
@@ -37,7 +40,16 @@ overlay.addEventListener('click', () => {
   onClickElement(overlay, 'overlay--on')
 });
 
-currentLinkMainPage.addEventListener('click', () => changeElementsClass('remove'));
+currentLinkMainPage.addEventListener('click', () => {
+  changeElementsClass('remove');
+  unlockScroll();
+});
 
-navLinkHelp.addEventListener('click', evt => evt.preventDefault());
-navLinkContacts.addEventListener('click', evt => evt.preventDefault());
+navLinkHelp.addEventListener('click', () => {
+  changeElementsClass('remove');
+  unlockScroll();
+});
+navLinkContacts.addEventListener('click', () => {
+  changeElementsClass('remove');
+  unlockScroll();
+});

@@ -1,6 +1,7 @@
 import {
   getPetsData
 } from './all-pets.js';
+import { blockScroll,unlockScroll } from './util.js';
 
 const PETS_DATA = getPetsData();
 
@@ -34,6 +35,7 @@ function showPopup(card) {
   buttonPopupClose.addEventListener('click', () => {
     popup.remove();
     overlay.classList.remove('overlay--on');
+    unlockScroll();
   }, {
     once: true
   });
@@ -41,6 +43,7 @@ function showPopup(card) {
   overlay.addEventListener('click', () => {
     popup.remove();
     overlay.classList.remove('overlay--on');
+    unlockScroll();
   }, {
     once: true
   })
@@ -52,6 +55,7 @@ function onClickCard(evt) {
     return;
   }
   showPopup(card);
+  blockScroll();
 }
 
 petsList.addEventListener('click', evt => onClickCard(evt));

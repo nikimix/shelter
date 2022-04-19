@@ -20,4 +20,11 @@ function shuffle(array) {
   return array;
 }
 
-export {getRandomInteger, debounce, shuffle};
+function blockScroll() {
+  document.documentElement.style.overflow = 'hidden'
+}
+function unlockScroll() {
+  document.documentElement.style.overflow = '';
+}
+
+export {getRandomInteger, debounce, shuffle, blockScroll, unlockScroll};
