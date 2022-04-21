@@ -19,89 +19,75 @@ const sliderNextButton = document.querySelector(".slider__button--next");
 const sliderWrapper = document.querySelector('.slider__wrapper');
 const sliderList = sliderWrapper.firstElementChild;
 const sliderItem = sliderList.firstElementChild;
-const sliderItemWidth = sliderItem.offsetWidth;
 const cloneSliderList = sliderList.cloneNode(true);
 
-let sliderChildren = sliderList.children;
+const  sliderChildren = sliderList.children;
 let sliderDirection = null;
 
-function getAmountElementsInSlide() {
-  const displayWidth = parseFloat(getComputedStyle(document.body).width, 10);
-  if (displayWidth > 1280) {
+function getAmountSlideElements() {
+  const windowWidth = document.body.offsetWidth;
+
+  if (windowWidth > 1280) {
     return 3;
   }
-  return displayWidth >= 768 ? 2 : 1;
-}
 
-function updateSliderList(quantity) {
+  return windowWidth >= 768 ? 2 : 1;
+}
+let amountSlideElements = getAmountSlideElements();
+
+function updateSliderList() {
+  amountSlideElements = getAmountSlideElements();
   sliderList.innerHTML = '';
-  for (let i = 0; i < quantity; i++) {
-    sliderList.appendChild(cloneSliderList.children[i].cloneNode(true));
+  for (let i = 0; i < amountSlideElements; i++) {
+    sliderList.append(cloneSliderList.children[i].cloneNode(true));
   }
 }
 
 function getSliderStep() {
-  const elementsAmountInSlide = getAmountElementsInSlide();
-  return sliderItemWidth * elementsAmountInSlide + parseInt(getComputedStyle(sliderList).columnGap, 10) * elementsAmountInSlide;
+  return sliderList.offsetWidth + parseInt(getComputedStyle(sliderList).columnGap, 10)
 }
 
 window.addEventListener('resize', debounce(() => {
-  updateSliderList(getAmountElementsInSlide());
+  updateSliderList();
 }, DELAY));
 
-window.addEventListener('load', () => updateSliderList(getAmountElementsInSlide()));
-
-function getUniqueCardsData(filters) {
-  const filteredData = petsData.filter(item => !filters.includes(item.name));
-  const uniqueCardsData = [];
+function getNewSlideElements(filters) {
+  const filteredCards = petsData.filter(item => !filters.includes(item.name));
+  const uniqueCards = [];
 
   for (let i = 0; i < filters.length; i++) {
-    const randomNumber = getRandomInteger(0, filteredData.length);
-    uniqueCardsData.push(filteredData[randomNumber]);
-    filteredData.splice(randomNumber, 1);
+    const randomNumber = getRandomInteger(0, filteredCards.length);
+    uniqueCards.push(filteredCards[randomNumber]);
+    filteredCards.splice(randomNumber, 1);
   }
 
-  return uniqueCardsData;
+  return uniqueCards;
 }
 
-function createNewItem(petData) {
-  const cardClone = sliderItem.cloneNode(true);
-  cardClone.querySelector('.card__title').textContent = petData.name;
-  cardClone.querySelector('.card__img').src = petData.img;
-  return cardClone;
+function createNewCard(petData) {
+  const newCard = sliderItem.cloneNode(true);
+  newCard.querySelector('.card__title').textContent = petData.name;
+  newCard.querySelector('.card__img').src = petData.img;
+  return newCard;
 }
 
-function createUniqueCards() {
+function createNewSlide() {
   const newFragment = document.createDocumentFragment();
-  let uniqueCardsData = null;
-  let filters = null;
-
-  if (getAmountElementsInSlide() < 2) {
-    filters = sliderList.firstElementChild.querySelector('.card__title').textContent;
-    uniqueCardsData = petsData.filter(item => filters !== item.name)[getRandomInteger(0, petsData.length - 1)];
-    newFragment.append(createNewItem(uniqueCardsData));
+  const filters = [];
+  for (let i = 0; i < amountSlideElements; i++) {
+    filters.push(sliderChildren[i].querySelector('.card__title').textContent);
   }
-
-  if (getAmountElementsInSlide() >= 2) {
-    filters = Array.from(sliderChildren).map(item => item.querySelector('.card__title').textContent);
-    uniqueCardsData = getUniqueCardsData(filters);
-    for (let item of uniqueCardsData) {
-      newFragment.append(createNewItem(item));
-    }
-  }
-
+  getNewSlideElements(filters).forEach(card => newFragment.append(createNewCard(card)));
   return newFragment;
 }
 
 function deletePreviousSlide(placing) {
   if (placing === "before") {
-    for (let i = 0; i < sliderChildren.length; i++) {
+    for (let i = 0; i < amountSlideElements; i++) {
       sliderList.lastElementChild.remove();
     }
-  }
-
-  if (placing === "after") {
-    for (let i = 0; i < sliderChildren.length; i++) {
+  } else {
+    for (let i = 0; i < amountSlideElements; i++) {
       sliderList.firstElementChild.remove();
     }
   }
@@ -112,40 +98,52 @@ function getTranslate(shiftX) {
 }
 
 function setTransform(direction) {
+  const sliderStep = getSliderStep()
   sliderDirection = direction;
-  sliderList.style.transform = getTranslate(sliderDirection * getSliderStep());
+  sliderList.style.transform = getTranslate(direction * sliderStep);
 }
 
-sliderNextButton.addEventListener("click", debounce(() => {
-  sliderList.append(createUniqueCards());
-  setTransform(DIRECTION_RIGHT);
-  sliderList.style.justifyContent = 'flex-start';
-}, DELAY));
+function swipeSlide() {
+  const evt = arguments[0];
+  const buttonNext = evt.target.closest('.slider__button--next');
+  const buttonBack = evt.target.closest('.slider__button--back');
+  if (!buttonNext && !buttonBack) {
+    return;
+  }
+  const newSlide = createNewSlide();
+  if (buttonNext) {
+    sliderList.style.justifyContent = 'flex-start';
+    sliderList.append(newSlide);
+    setTransform(DIRECTION_RIGHT);
+  } else {
+    sliderList.style.justifyContent = 'flex-end';
+    sliderList.prepend(newSlide);
+    setTransform(DIRECTION_LEFT);
+  }
+}
 
-sliderPrevButton.addEventListener("click", debounce(() => {
-  sliderList.prepend(createUniqueCards());
-  setTransform(DIRECTION_LEFT);
-  sliderList.style.justifyContent = 'flex-end';
-}, DELAY));
+sliderNextButton.addEventListener("click", swipeSlide);
+
+sliderPrevButton.addEventListener("click", swipeSlide);
 
 sliderList.addEventListener('transitionstart', (evt) => {
   if (evt.target === sliderList) {
-    sliderPrevButton.setAttribute('disabled', '');
-    sliderNextButton.setAttribute('disabled', '');
+    sliderNextButton.removeEventListener("click", swipeSlide);
+    sliderPrevButton.removeEventListener("click", swipeSlide);
   }
 })
 
 sliderList.addEventListener("transitionend", (evt) => {
   if (evt.target === sliderList) {
     deletePreviousSlide(sliderDirection === DIRECTION_LEFT ? PLACING_BEFFORE : PLACING_AFTER);
-    sliderPrevButton.removeAttribute('disabled');
-    sliderNextButton.removeAttribute('disabled');
+    sliderNextButton.addEventListener("click", swipeSlide);
+    sliderPrevButton.addEventListener("click", swipeSlide);
     sliderList.style.transition = "none";
-
     setTransform(0);
-
     setTimeout(() => {
       sliderList.style.transition = DEFAULT_TRANSITION;
     });
   }
 });
+
+window.addEventListener('load', () => updateSliderList(getAmountSlideElements()));
