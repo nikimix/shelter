@@ -94,9 +94,7 @@ function changePaginationState(state) {
   }
 }
 
-function onTransitionStartItem() {
-  const evt = arguments[0];
-
+function onTransitionStartItem(evt) {
   if (evt.target.closest('.pets__item')) {
     changePaginationState(STATE_BLOCKED)
   }
@@ -119,9 +117,8 @@ function changeElementsView(state) {
   }
 }
 
-function onTransitionEndItem() {
+function onTransitionEndItem(evt) {
   counterAmountTransitions++;
-  const evt = arguments[0];
   if (evt.target.closest('.pets__item')) {
     createNewCards();
     changeElementsView(STATE_VISIBLE)

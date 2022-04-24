@@ -103,8 +103,7 @@ function setTransform(direction) {
   sliderList.style.transform = getTranslate(direction * sliderStep);
 }
 
-function swipeSlide() {
-  const evt = arguments[0];
+function swipeSlide(evt) {
   const buttonNext = evt.target.closest('.slider__button--next');
   const buttonBack = evt.target.closest('.slider__button--back');
   if (!buttonNext && !buttonBack) {
