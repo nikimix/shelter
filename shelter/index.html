@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="page page--main" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shelter</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="body">
+  <header class="header">
+    <div class="wrapper">
+      <div class="header__content">
+        <a class="logo" href="#">
+          <h1 class="logo__title">Cozy House</h1>
+          <h2 class="logo__subtitle">Shelter for pets in Boston</h2>
+        </a>
+        <button class="header__toggle" type="button"><span class="visually-hidden">menu</span></button>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page nav__link--current nav__link--main-page-current" href="#">About
+                the shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page" href="our-pets.html">Our pets</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page js-anchor" href="#help">Help the shelter</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link nav__link--main-page js-anchor" href="#contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="wrapper">
+        <div class="sidebar__content">
+          <a class="logo sidebar__logo" href="#">
+            <p class="logo__title">Cozy House</p>
+            <p class="logo__subtitle">Shelter for pets in Boston</p>
+          </a>
+          <nav class="nav sidebar__nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a class="nav__link nav__link--main-page nav__link--current nav__link--main-page-current" href="#">About
+                  the
+                  shelter</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link nav__link--main-page" href="our-pets.html">Our pets</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link nav__link--main-page nav__link--help" href="#help">Help the shelter</a>
+              </li>
+              <li class="nav__item">
+                <a class="nav__link nav__link--main-page nav__link--contacts" href="#contacts">Contacts</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="promo">
+      <div class="wrapper">
+        <div class="promo__content">
+          <div class="promo__text-content">
+            <h2 class="promo__title">Not only people<br> need a house</h2>
+            <p class="promo__description">We offer to give a chance to a little and nice puppy with an extremely wide
+              and
+              open heart. He or she will
+              love
+              you more than anybody else in the world, you will see!</p>
+            <a class="promo__link button js-anchor" href="#pets">Make a friend</a>
+          </div>
+          <img class="promo__img" src="img/desktop_promo_puppy.png" width="260" height="271" alt="picture of puppy">
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="wrapper">
+        <div class="about__content">
+          <div class="about__text-content">
+            <h2 class="about__title">About the shelter<br> “Cozy House”</h2>
+            <p class="about__description">Currently we have 121 dogs and 342 cats on our hands and statistics show that
+              only 20% of them will find a
+              family. The others will continue to live with us and will be waiting for a lucky chance to become dearly
+              loved.
+            </p>
+            <p class="about__description">We feed our wards with the best food and make sure that they do not get sick,
+              feel comfortable (including
+              psychologically) and well. We are supported by 87 volunteers and 28 employees of various skill levels.
+              About
+              12%
+              of the animals are taken by the shelter staff. Taking care of the animals, they become attached to the
+              pets
+              and
+              would hardly ever leave them alone.</p>
+          </div>
+          <img class="about__img" src="img/desktop_about_pets.jpg" width="260" height="354"
+            alt="picture a cat near a dog">
+        </div>
+      </div>
+    </section>
+
+    <section class="pets" id="pets">
+      <div class="wrapper">
+        <div class="pets__content">
+          <h2 class="pets__title">Our friends who<br>
+            are looking for a house</h2>
+          <div class="slider">
+            <div class="slider__wrapper">
+              <ul class="slider__list pets-list">
+                <li class="slider__item slider__item--1">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_katrine.jpg" width="270" height="270" alt="pet cat katrine">
+                    <h3 class="card__title">Katrine</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+                <li class="slider__item slider__item--2">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_jennifer.jpg" width="270" height="270"
+                      alt="pet cat jennifer">
+                    <h3 class="card__title">Jennifer</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+                <li class="slider__item slider__item--3">
+                  <article class="card">
+                    <img class="card__img" src="img/pet_woody.jpg" width="270" height="270" alt="pet cat woody">
+                    <h3 class="card__title">Woody</h3>
+                    <button class="card__button button" type="button">Learn more</button>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="slider__controls">
+              <button class="slider__button slider__button--back slider__button--active button" type="button"
+                aria-label="scroll-slider">
+                <svg width="14" height="6">
+                  <use xlink:href="img/icons/sprite.svg#icon_arrow"></use>
+                </svg>
+              </button>
+              <button class="slider__button slider__button--next slider__button--active button" type="button"
+                aria-label="scroll-slider">
+                <svg width="14" height="6">
+                  <use xlink:href="img/icons/sprite.svg#icon_arrow"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <a class="pets__link button" href="our-pets.html">Get to know the rest</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="help" id="help">
+      <div class="wrapper">
+        <div class="help__content">
+          <h2 class="help__title">How you can help<br> our shelter</h2>
+          <ul class="help__list">
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_food"></use>
+              </svg>
+              <h3 class="help__item-title">Pet food</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_transportation"></use>
+              </svg>
+              <h3 class="help__item-title">Transportation</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_toys"></use>
+              </svg>
+              <h3 class="help__item-title">Toys</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_bowls_and_cups"></use>
+              </svg>
+              <h3 class="help__item-title">Bowls and cups</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_shampoos"></use>
+              </svg>
+              <h3 class="help__item-title">Shampoos</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_vitamins"></use>
+              </svg>
+              <h3 class="help__item-title">Vitamins</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_medicines"></use>
+              </svg>
+              <h3 class="help__item-title">Medicines</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_collars_or_leashes"></use>
+              </svg>
+              <h3 class="help__item-title">Collars / leashes</h3>
+            </li>
+            <li class="help__item">
+              <svg class="help__icon" width="50" height="50">
+                <use xlink:href="img/icons/sprite.svg#icon_sleeping_area"></use>
+              </svg>
+              <h3 class="help__item-title">Sleeping areas</h3>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="donation">
+      <div class="wrapper">
+        <div class="donation__content">
+          <div class="donation__text-content">
+            <h2 class="donation__title">You can also<br> make a donation</h2>
+            <p class="donation__subtitle">Name of the bank / Type of bank account</p>
+            <div class="donation__requisites">
+              <a class="donation__number-card" href="#">
+                <svg class="donation__icon" width="30" height="23">
+                  <use xlink:href="img/icons/sprite.svg#icon_credit_card"></use>
+                </svg>
+                8380 2880 8028 8791 7435</a>
+            </div>
+            <p class="donation__info">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate.
+              Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+          </div>
+          <img class="donation__img" src="img/desktop_donation_dog.jpg" width="260" height="135" alt="picture of puppy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="wrapper">
+      <div class="main-footer__content">
+        <div class="main-footer__text-content">
+          <div class="contacts" id="contacts">
+            <h2 class="contacts__title">For questions<br> and suggestions</h2>
+            <a class="contacts__email" href="mailto:email@shelter.com" aria-label="shelter email">
+              <svg class="contacts__email-icon" width="40" height="26" role="img">
+                <use xlink:href="img/icons/sprite.svg#icon_mail"></use>
+              </svg>
+              email@shelter.com
+            </a>
+            <a class="contacts__phone" href="tel:+136745677554" aria-label="shelter phone number">
+              <svg class="contacts__phone-icon" width="40" height="32" role="img">
+                <use xlink:href="img/icons/sprite.svg#icon_phone"></use>
+              </svg>
+              +13 674 567 75 54
+            </a>
+          </div>
+          <div class="address">
+            <h2 class="address__title">We are waiting<br> for your visit</h2>
+            <address class="address__info">
+              <a class="address__link" href="https://goo.gl/maps/wjTEpoXxmr219rSbA" target="_blank"
+                aria-label="shelter address">
+                <svg class="address__pin-icon" width="22" height="32" role="img">
+                  <use xlink:href="img/icons/sprite.svg#icon_pin"></use>
+                </svg>
+                1 Central Street,
+                Boston<br> (entrance from the store)
+              </a>
+            </address>
+            <address class="address__info">
+              <a class="address__link" href="https://goo.gl/maps/wjTEpoXxmr219rSbA" target="_blank"
+                aria-label="shelter address">
+                <svg class="address__pin-icon" width="22" height="32" role="img">
+                  <use xlink:href="img/icons/sprite.svg#icon_pin"></use>
+                </svg>
+                18 South Park,
+                London
+              </a>
+            </address>
+          </div>
+        </div>
+        <img class="main-footer__img" src="img/desktop_footer_puppy.png" width="260" height="269"
+          alt="picture of puppy">
+      </div>
+    </div>
+  </footer>
+
+  <template id="popup">
+    <div class="popup">
+      <div class="popup__content">
+        <h2 class="popup__title"></h2>
+        <h3 class="popup__subtitle"></h3>
+        <p class="popup__description"></p>
+        <dl class="popup__feature-list feature-list">
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--age">Age: </dt>
+            <dd class="feature-list__description feature-list__description--age"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--inoculations">Inoculations: </dt>
+            <dd class="feature-list__description feature-list__description--inoculations"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--diseases">Diseases: </dt>
+            <dd class="feature-list__description feature-list__description--diseases"></dd>
+          </div>
+
+          <div class="feature-list__item-wrapper">
+            <dt class="feature-list__term feature-list__term--parasites">Parasites: </dt>
+            <dd class="feature-list__description feature-list__description--parasites"></dd>
+          </div>
+        </dl>
+      </div>
+      <img class="popup__img" src="350" width="350" height="500" alt="pet Jennifer">
+      <button class="popup__button-close popup__button-close--active button" type="button">
+        <svg width="12" height="12">
+          <use xlink:href="img/icons/sprite.svg#icon_cross"></use>
+        </svg>
+      </button>
+    </div>
+  </template>
+
+  <div class="overlay"></div>
+  <script src="js/main/script.js" type="module"></script>
+</body>
+
+</html>

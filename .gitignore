@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+npm-debug.*
+# src/
+.editorconfig
+gulpfile.js
+.gitattributes
+package-lock.json
+package.json
+README.md
