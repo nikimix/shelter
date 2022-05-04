@@ -1,2 +1,1 @@
-# nikimix-JSFE2022Q1
-Private repository for @nikimix
+https://rolling-scopes-school.github.io/nikimix-JSFE2022Q1/shelter/
